@@ -1,0 +1,30 @@
+﻿﻿@using ultimoprogetto.Models
+@model List<pizza>
+@{
+    ViewBag.Title = "menu";
+}
+@{
+    Html.RenderAction("indirizzo");
+}
+
+@foreach (pizza p in Model)
+{
+    <img src="~/Content/FileUpload/@p.img" />
+    <p> @p.nome</p>
+    <p> @p.ingredienti</p>
+    <p> @p.costo.ToString("C2")</p>
+    if (User.IsInRole("Admin"))
+    {
+
+        <a class="btn btn-danger" href="@Url.Action("eliminadaldatabase", "AgiungieModificaPizza", new{ parameter = $"{p.idpizza}"})"> elimina </a>
+    }
+    else
+    {
+        <div id="@p.idpizza"></div>
+
+    }
+}
+@section scripts{
+
+    <script src="~/Scripts/JavaScript.js"></script>
+}
