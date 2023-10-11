@@ -10,26 +10,56 @@
 </head>
 <body>
     <img class="demo-bg" src="https://th.bing.com/th/id/OIP.pNxV9FiOmGAPfS8OLxkvmQHaE8?pid=ImgDet&rs=1" />
-    @if (User.Identity.IsAuthenticated)
+    @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
     {
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger">
             <div class="container">
-                @Html.ActionLink("Nome dell'applicazione", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li> @Html.ActionLink("menu", "menu", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("ordini attivi", "concludiordine", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
                     </ul>
                 </div>
             </div>
         </nav>
     }
-    else if (User.IsInRole("Admin")) { }
-    else { }
+    else if (User.IsInRole("Admin"))
+    { <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger">
+            <div class="container">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li> @Html.ActionLink("menu", "menu", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                        <li>@Html.ActionLink("aggiungi una pizza", "creapizza", "AgiungieModificaPizza", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>}
+    else
+    {
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger">
+            <div class="container">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li> @Html.ActionLink("login", "login", "home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("registrazione", "signup", "home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>}
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />
