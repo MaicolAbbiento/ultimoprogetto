@@ -33,6 +33,9 @@ namespace ultimoprogetto.Models
         [StringLength(50)]
         public string nome { get; set; }
 
+        [Required]
+        public int tempoConsegnamin { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<pizeeoridnate> pizeeoridnate { get; set; }
     }

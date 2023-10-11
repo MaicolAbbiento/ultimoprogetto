@@ -18,12 +18,11 @@
 
         <a class="btn btn-danger" href="@Url.Action("eliminadaldatabase", "AgiungieModificaPizza", new{ parameter = $"{p.idpizza}"})"> elimina </a>
     }
-    else
-    {
-        <div id="@p.idpizza"></div>
 
-    }
+    <div id="@p.idpizza"></div>
+
 }
+
 @section scripts{
 
     <script src="~/Scripts/JavaScript.js"></script>

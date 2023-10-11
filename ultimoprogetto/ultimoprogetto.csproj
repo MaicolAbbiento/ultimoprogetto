@@ -164,6 +164,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AgiungieModificaPizzaController.cs" />
+    <Compile Include="Controllers\CassaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuOrdinazioniController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -177,6 +178,18 @@
     <Compile Include="Migrations\202310101135415_addcolumn-quantita-completato.cs" />
     <Compile Include="Migrations\202310101135415_addcolumn-quantita-completato.designer.cs">
       <DependentUpon>202310101135415_addcolumn-quantita-completato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310101551155_add-costotot.cs" />
+    <Compile Include="Migrations\202310101551155_add-costotot.designer.cs">
+      <DependentUpon>202310101551155_add-costotot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310111001009_v.cs" />
+    <Compile Include="Migrations\202310111001009_v.designer.cs">
+      <DependentUpon>202310111001009_v.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310111253373_tempo.cs" />
+    <Compile Include="Migrations\202310111253373_tempo.designer.cs">
+      <DependentUpon>202310111253373_tempo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\amministatori.cs" />
@@ -260,10 +273,12 @@
     <Content Include="Views\MenuOrdinazioni\menu.cshtml" />
     <Content Include="Views\AgiungieModificaPizza\modificapizza.cshtml" />
     <Content Include="Views\MenuOrdinazioni\_indirizzo.cshtml" />
+    <Content Include="Views\MenuOrdinazioni\concludiordine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\FileUpload\" />
+    <Folder Include="Views\Cassa\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -342,6 +357,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310101135415_addcolumn-quantita-completato.resx">
       <DependentUpon>202310101135415_addcolumn-quantita-completato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310101551155_add-costotot.resx">
+      <DependentUpon>202310101551155_add-costotot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310111001009_v.resx">
+      <DependentUpon>202310111001009_v.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310111253373_tempo.resx">
+      <DependentUpon>202310111253373_tempo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
