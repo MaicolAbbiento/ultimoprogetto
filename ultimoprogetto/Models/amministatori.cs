@@ -14,10 +14,12 @@ namespace ultimoprogetto.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "inserisci username")]
         public string username { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "inserisci password")]
         public string password { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace ultimoprogetto.Models
         public int idordine { get; set; }
 
         [StringLength(20)]
+        [Display(Name = "inserisci indirizzo se non inserito puoi ritirare l'ordine in pizzeria")]
         public string indirizzo { get; set; }
 
         [Required]
