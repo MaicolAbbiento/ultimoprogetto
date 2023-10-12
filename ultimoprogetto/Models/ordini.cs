@@ -31,6 +31,7 @@ namespace ultimoprogetto.Models
         [Column(TypeName = "money")]
         public decimal costotot { get; set; }
 
+        public bool evaso { get; set; }
         public bool completato { get; set; }
         public virtual cliente cliente { get; set; }
 

@@ -41,6 +41,7 @@ namespace ultimoprogetto.Controllers
             List<ordini> o = model.ordini.Where((c) => c.idcliente == ordini.idcliente && c.completato == false).ToList();
             if (o.Count == 0)
             {
+                ordini.evaso = false;
                 model.ordini.Add(ordini);
                 model.SaveChanges();
             }
@@ -122,11 +123,9 @@ namespace ultimoprogetto.Controllers
             List<pizeeoridnate> pi = new List<pizeeoridnate>();
             if (o.Count > 0)
             {
-                int id = o[0].idcliente;
+                int id = o[0].idordine;
 
-                List<ordini> ordini = model.ordini.ToList();
-                ordini or = ordini[0];
-                pi = model.pizeeoridnate.Where((p) => p.idordine == or.idordine).ToList();
+                pi = model.pizeeoridnate.Where((p) => p.idordine == id).ToList();
                 decimal costo = 0;
                 int t = 0;
                 foreach (var item in pi)
@@ -143,6 +142,39 @@ namespace ultimoprogetto.Controllers
             else
             {
                 pi = new List<pizeeoridnate>();
+            }
+            return View(pi);
+        }
+
+        public ActionResult listaord()
+        {
+            Model1 model = new Model1();
+            cliente cliente = new cliente();
+            List<pizeeoridnate> pi = new List<pizeeoridnate>();
+            if (User.IsInRole("Admin"))
+            {
+                List<ordini> o = model.ordini.Where((c) => c.completato == true && c.evaso == false).ToList();
+
+                foreach (var item in o)
+                {
+                    List<pizeeoridnate> pizzaa = model.pizeeoridnate.Where((p) => p.idordine == item.idordine).ToList();
+                    foreach (var item3 in pizzaa)
+                    {
+                        pi.Add(item3);
+                    }
+                }
+            }
+            else
+            {
+                List<ordini> o = model.ordini.Where((c) => c.completato == true && c.cliente.username == User.Identity.Name).ToList();
+                foreach (var item in o)
+                {
+                    List<pizeeoridnate> pizzaa = model.pizeeoridnate.Where((p) => p.idordine == item.idordine).ToList();
+                    foreach (var item3 in pizzaa)
+                    {
+                        pi.Add(item3);
+                    }
+                }
             }
             return View(pi);
         }

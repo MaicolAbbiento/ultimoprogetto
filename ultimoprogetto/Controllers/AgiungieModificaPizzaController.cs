@@ -59,7 +59,7 @@ namespace ultimoprogetto.Controllers
         }
 
         [HttpPost]
-        public ActionResult modificapizza(pizza p)
+        public ActionResult modificapizza(pizza p, HttpPostedFileBase img)
         {
             Model1 model = new Model1();
             if (p.img == null)
@@ -68,11 +68,26 @@ namespace ultimoprogetto.Controllers
             }
             else
             {
+                string nomeFile = img.FileName;
+                string pathToSave = Path.Combine(Server.MapPath("~/Content/FileUpload"), nomeFile);
+                img.SaveAs(pathToSave);
+                p.img = nomeFile;
                 Session["img"] = p.img;
             }
             model.Entry(p).State = EntityState.Modified;
             model.SaveChanges();
             return View();
+        }
+
+        public ActionResult evadi(string parameter )
+        {
+            int id = int.Parse(parameter);  
+            Model1 model = new Model1();
+            ordini ordini = model.ordini.Find(id);
+            ordini.evaso = true;
+            model.Entry(ordini).State = EntityState.Modified;
+            model.SaveChanges();
+            return RedirectToAction("listaord", "MenuOrdinazioni");
         }
     }
 }

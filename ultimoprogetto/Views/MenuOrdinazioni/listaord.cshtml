@@ -1,0 +1,30 @@
+﻿﻿@using ultimoprogetto.Models
+@model List<pizeeoridnate>
+<h2> lista ordini in attesa di spedizione</h2>
+@foreach (pizeeoridnate p in Model)
+{
+    <div class="d-flex align-items-center mb-2">
+        <p class="mb-0">
+            ordine numero @p.idordine con @p.quantita di @if (p.quantita > 1)
+            {<span>pizze</span> }
+            else
+            {<span>pizza</span>} @p.pizza.nome a nome @p.ordini.cliente.username
+        </p>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="btn btn-danger mx-2" href="@Url.Action("evadi", "AgiungieModificaPizza", new { parameter = $"{p.idordine}" })"> evadi ordine </a>
+        }
+        else
+        {
+            if (p.ordini.evaso)
+            {
+                <p class="text-success mb-0 ms-1"> V consegnato</p>
+            }
+            else
+            {
+                <p class="text-dark ms-2 fw-bold mb-0"> IN CONSEGNA ...</p>
+            }
+        }
+    </div>
+
+}

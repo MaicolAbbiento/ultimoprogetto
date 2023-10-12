@@ -22,6 +22,8 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li> @Html.ActionLink("menu", "menu", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
                         <li>@Html.ActionLink("ordini attivi", "concludiordine", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("lista ordini", "listaord", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link btn" })</li>
                     </ul>
                 </div>
             </div>
@@ -39,6 +41,8 @@
                         <li> @Html.ActionLink("menu", "menu", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
 
                         <li>@Html.ActionLink("aggiungi una pizza", "creapizza", "AgiungieModificaPizza", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("lista ordini", "listaord", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link btn" })</li>
                     </ul>
                 </div>
             </div>
@@ -59,8 +63,8 @@
                 </div>
             </div>
         </nav>}
-    }
-    <div class="container body-content">
+
+    <div class="mt-2 mx-4">
         @RenderBody()
         <hr />
         <footer>

@@ -21,6 +21,15 @@ textarea {
     height: 100%;
     z-index: -1;
 }
-.img-pizza{
-    width : 100px;
+
+.img-pizza {
+    width: 100px;
+}
+
+.w {
+    width: 305px;
+    height: 225px;
+}
+.w-div{
+    margin : 100px 0px ;
 }

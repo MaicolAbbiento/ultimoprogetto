@@ -191,6 +191,10 @@
     <Compile Include="Migrations\202310111253373_tempo.designer.cs">
       <DependentUpon>202310111253373_tempo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202310121151540_bool-evaso.cs" />
+    <Compile Include="Migrations\202310121151540_bool-evaso.designer.cs">
+      <DependentUpon>202310121151540_bool-evaso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\amministatori.cs" />
     <Compile Include="Models\cliente.cs" />
@@ -199,6 +203,7 @@
     <Compile Include="Models\pizeeoridnate.cs" />
     <Compile Include="Models\pizza.cs" />
     <Compile Include="Models\SiteRole.cs" />
+    <Compile Include="Models\Soldi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +253,7 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\JavaScript.js" />
+    <Content Include="Scripts\JavaScript2.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -273,11 +279,13 @@
     <Content Include="Views\AgiungieModificaPizza\modificapizza.cshtml" />
     <Content Include="Views\MenuOrdinazioni\_indirizzo.cshtml" />
     <Content Include="Views\MenuOrdinazioni\concludiordine.cshtml" />
+    <Content Include="Views\MenuOrdinazioni\listaord.cshtml" />
+    <Content Include="Views\Cassa\cassa.cshtml" />
+    <Content Include="Views\Home\listautenti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\FileUpload\" />
-    <Folder Include="Views\Cassa\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -365,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310111253373_tempo.resx">
       <DependentUpon>202310111253373_tempo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310121151540_bool-evaso.resx">
+      <DependentUpon>202310121151540_bool-evaso.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

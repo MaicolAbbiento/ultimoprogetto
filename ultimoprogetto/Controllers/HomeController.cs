@@ -10,13 +10,6 @@ namespace ultimoprogetto.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            ViewBag.Title = "Home Page";
-
-            return View();
-        }
-
         [HttpGet]
         public ActionResult signUp()
         {
@@ -66,6 +59,21 @@ namespace ultimoprogetto.Controllers
                 FormsAuthentication.SetAuthCookie(c.username, false);
             }
             return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult listautenti()
+        {
+            Model1 model = new Model1();
+            List<cliente> cl = model.cliente.ToList();
+
+            return View(cl);
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
         }
     }
 }
