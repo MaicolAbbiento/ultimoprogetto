@@ -176,6 +176,7 @@ namespace ultimoprogetto.Controllers
                     }
                 }
             }
+            pi.Reverse();
             return View(pi);
         }
 
