@@ -11,6 +11,7 @@ using ultimoprogetto.Models;
 
 namespace ultimoprogetto.Controllers
 {
+    [Authorize]
     public class MenuOrdinazioniController : Controller
     {
         // GET: MenuOrdinazioni

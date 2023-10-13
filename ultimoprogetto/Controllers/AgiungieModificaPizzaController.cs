@@ -11,6 +11,7 @@ using ultimoprogetto.Models;
 
 namespace ultimoprogetto.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AgiungieModificaPizzaController : Controller
     {
         // GET: AgiungieModificaPizza

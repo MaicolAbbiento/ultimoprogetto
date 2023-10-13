@@ -62,15 +62,6 @@ namespace ultimoprogetto.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
-        public ActionResult listautenti()
-        {
-            Model1 model = new Model1();
-            List<cliente> cl = model.cliente.ToList();
-
-            return View(cl);
-        }
-
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();

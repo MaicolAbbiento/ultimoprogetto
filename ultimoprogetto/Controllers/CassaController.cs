@@ -7,6 +7,7 @@ using ultimoprogetto.Models;
 
 namespace ultimoprogetto.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CassaController : Controller
     {
         // GET: Cassa
