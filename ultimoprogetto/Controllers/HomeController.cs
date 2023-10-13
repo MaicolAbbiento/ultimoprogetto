@@ -57,6 +57,7 @@ namespace ultimoprogetto.Controllers
             if (d != null || cl != null)
             {
                 FormsAuthentication.SetAuthCookie(c.username, false);
+                return RedirectToAction("menu", "MenuOrdinazioni");
             }
             return View();
         }

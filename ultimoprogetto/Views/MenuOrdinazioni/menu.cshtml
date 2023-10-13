@@ -1,8 +1,6 @@
 ﻿﻿@using ultimoprogetto.Models
 @model List<pizza>
-@{
-    ViewBag.Title = "menu";
-}
+
 @if (!User.IsInRole("Admin"))
 {
     {
@@ -23,8 +21,8 @@
 
         @if (User.IsInRole("Admin"))
         {
-            <a class="btn btn-danger mx-2" href="@Url.Action("eliminapizzadaldatabase", "AgiungieModificaPizza", new { parameter = $"{p.idpizza}" })"> elimina </a>
-            <a class="btn btn-warning" href="../AgiungieModificaPizza/modificapizza/@p.idpizza"> modifica </a>
+            <a class="btn btnb  mx-2" href="@Url.Action("eliminapizzadaldatabase", "AgiungieModificaPizza", new { parameter = $"{p.idpizza}" })"> elimina </a>
+            <a class="btn btnb" href="../AgiungieModificaPizza/modificapizza/@p.idpizza"> modifica </a>
         }
         else
         {
@@ -36,7 +34,7 @@
 @if (!User.IsInRole("Admin"))
 {
 
-    <a> @Html.ActionLink("concludiordine", "concludiordine", "MenuOrdinazioni", new { @class = "btn btn-success" })</a>
+    <a> @Html.ActionLink("concludi ordine", "concludiordine", "MenuOrdinazioni", new { @class = "btn btnb mt-2 ms-2" })</a>
 
 }
 

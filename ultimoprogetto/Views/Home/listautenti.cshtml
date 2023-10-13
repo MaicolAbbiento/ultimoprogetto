@@ -1,9 +1,0 @@
-﻿﻿@using ultimoprogetto.Models
-@model List<cliente>
-<h2 class="text-center"> lista degli utenti registrati </h2>
-@foreach (cliente c in Model)
-{
-    <div class="d-flex align-items-center justify-content-center mb-3">
-        <p class="m-0 me-2"> utente @c.username si chiama @c.nome @c.cognome il suo contatto @c.contattotelefonico</p>
-    </div>
-}

@@ -7,7 +7,7 @@
             $.each(data, function (n, e) {
                 console.log(data)
                 let input1 = `<input type="number" id="inp${e}" placeholder="inseire la quantità" />
-        <input type="button" class="btn btn btn-secondar" id="btn${e}" value="ordina" />`
+        <input type="button" class="btn btnb" id="btn${e}" value="ordina" />`
                 $(`#${e}`).append(input1)
                 $(`#btn${e}`).click(function () {
                     let impt = $(`#inp${e}`).val();

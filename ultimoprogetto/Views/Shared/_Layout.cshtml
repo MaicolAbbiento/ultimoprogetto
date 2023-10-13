@@ -14,6 +14,7 @@
     {
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger">
             <div class="container">
+                <img src="https://p7.hiclipart.com/preview/730/75/784/perfect-pizza-fast-food-pizza-delivery-vector-red-letters-and-pizza.jpg" class="logo rounded-circle" />
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,7 +24,7 @@
                         <li> @Html.ActionLink("menu", "menu", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
                         <li>@Html.ActionLink("ordini attivi", "concludiordine", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
                         <li>@Html.ActionLink("lista ordini", "listaord", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link btn" })</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     </ul>
                 </div>
             </div>
@@ -32,6 +33,7 @@
     else if (User.IsInRole("Admin"))
     { <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger">
             <div class="container">
+                <img src="https://p7.hiclipart.com/preview/730/75/784/perfect-pizza-fast-food-pizza-delivery-vector-red-letters-and-pizza.jpg" class="logo rounded-circle" />
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -42,7 +44,7 @@
 
                         <li>@Html.ActionLink("aggiungi una pizza", "creapizza", "AgiungieModificaPizza", new { area = "" }, new { @class = "navbar-brand" })</li>
                         <li>@Html.ActionLink("lista ordini", "listaord", "MenuOrdinazioni", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link btn" })</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     </ul>
                 </div>
             </div>
@@ -51,6 +53,7 @@
     {
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger">
             <div class="container">
+                <img src="https://p7.hiclipart.com/preview/730/75/784/perfect-pizza-fast-food-pizza-delivery-vector-red-letters-and-pizza.jpg" class="logo rounded-circle" />
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -66,9 +69,9 @@
 
     <div class="mt-2 mx-4">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
+
+        <footer class="footer">
+            <p>&copy; @DateTime.Now.Year  dal 1995 creiamo pizze di alta qulità da oggi potrai finalmente ordinare da questo sito online</p>
         </footer>
     </div>
 

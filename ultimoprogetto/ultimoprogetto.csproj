@@ -281,7 +281,6 @@
     <Content Include="Views\MenuOrdinazioni\concludiordine.cshtml" />
     <Content Include="Views\MenuOrdinazioni\listaord.cshtml" />
     <Content Include="Views\Cassa\cassa.cshtml" />
-    <Content Include="Views\Home\listautenti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

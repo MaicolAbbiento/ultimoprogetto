@@ -30,6 +30,23 @@ textarea {
     width: 305px;
     height: 225px;
 }
-.w-div{
-    margin : 100px 0px ;
+
+.w-div {
+    margin: 100px 0px;
+}
+
+.footer {
+    bottom: 0;
+    position: absolute;
+}
+
+.btnb {
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 81%);
+    font-weight: bold;
+    
+}
+.logo{
+    width:20px;
+    margin-right : 20px
 }

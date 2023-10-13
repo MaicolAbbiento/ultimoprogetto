@@ -52,32 +52,59 @@ namespace ultimoprogetto.Controllers
 
             int piz = Convert.ToInt32(id);
             p.idpizza = piz;
-            List<pizeeoridnate> a = model.pizeeoridnate.Where((pi) => pi.idpizza == piz).ToList();
-            if (a.Count == 0)
+
+            if (o.Count == 0)
             {
                 if (input == "")
                 {
                     p.quantita = 1;
                 }
                 else { p.quantita = Convert.ToInt32(input); }
-
                 model.pizeeoridnate.Add(p);
                 model.SaveChanges();
+                ;
             }
             else
             {
-                p.idpizeeoridnate = a[0].idpizeeoridnate;
-                if (input == "")
+                int ido = o[0].idordine;
+                List<pizeeoridnate> a = model.pizeeoridnate.Where((pi) => pi.idpizza == piz && ido == pi.idordine).ToList();
+                if (a.Count == 0)
                 {
-                    p.quantita = Convert.ToInt32(input) + a[0].quantita;
+                    p.idpizeeoridnate = Convert.ToInt32(id);
+                    if (input == "")
+                    {
+                        p.quantita = 1;
+                    }
+                    else { p.quantita = Convert.ToInt32(input); }
+                    model.pizeeoridnate.Add(p);
+                    model.SaveChanges();
                 }
-                p.quantita = Convert.ToInt32(input) + a[0].quantita;
+                else
+                {
+                    if (input == "")
+                    {
+                        a[0].quantita++;
+                        p.quantita = a[0].quantita;
+                        p.idpizeeoridnate = a[0].idpizeeoridnate;
+                        p.idordine = a[0].idordine;
+                        Model1 model1 = new Model1();
 
-                Model1 model1 = new Model1();
+                        model1.Entry(p).State = EntityState.Modified;
 
-                model1.Entry(p).State = EntityState.Modified;
+                        model1.SaveChanges();
+                    }
+                    else
+                    {
+                        p.quantita = Convert.ToInt32(input) + a[0].quantita;
+                        p.idpizeeoridnate = a[0].idpizeeoridnate;
+                        p.idordine = a[0].idordine;
+                        Model1 model1 = new Model1();
 
-                model1.SaveChanges();
+                        model1.Entry(p).State = EntityState.Modified;
+
+                        model1.SaveChanges();
+                    }
+                }
             }
             return Json(cl);
         }

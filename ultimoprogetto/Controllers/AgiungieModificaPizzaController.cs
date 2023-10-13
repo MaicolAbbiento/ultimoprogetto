@@ -61,27 +61,30 @@ namespace ultimoprogetto.Controllers
         [HttpPost]
         public ActionResult modificapizza(pizza p, HttpPostedFileBase img)
         {
-            Model1 model = new Model1();
-            if (p.img == null)
+            if (ModelState.IsValid)
             {
-                p.img = Session["img"].ToString();
+                Model1 model = new Model1();
+                if (p.img == null)
+                {
+                    p.img = Session["img"].ToString();
+                }
+                else
+                {
+                    string nomeFile = img.FileName;
+                    string pathToSave = Path.Combine(Server.MapPath("~/Content/FileUpload"), nomeFile);
+                    img.SaveAs(pathToSave);
+                    p.img = nomeFile;
+                    Session["img"] = p.img;
+                }
+                model.Entry(p).State = EntityState.Modified;
+                model.SaveChanges();
             }
-            else
-            {
-                string nomeFile = img.FileName;
-                string pathToSave = Path.Combine(Server.MapPath("~/Content/FileUpload"), nomeFile);
-                img.SaveAs(pathToSave);
-                p.img = nomeFile;
-                Session["img"] = p.img;
-            }
-            model.Entry(p).State = EntityState.Modified;
-            model.SaveChanges();
-            return View();
+            return View(p);
         }
 
-        public ActionResult evadi(string parameter )
+        public ActionResult evadi(string parameter)
         {
-            int id = int.Parse(parameter);  
+            int id = int.Parse(parameter);
             Model1 model = new Model1();
             ordini ordini = model.ordini.Find(id);
             ordini.evaso = true;
